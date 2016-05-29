@@ -1,0 +1,27 @@
+<table border="1" cellpadding="2" cellspacing="2" class="display" id="example">
+	<thead>
+		<tr><th>Lennu alguskoht</th><th>Lennu Sihtkoht</th><th>Kuupäev</th><th>Kellaaeg</th><th></th>
+	</thead>
+	<tbody>
+		<?php while ($row = mysqli_fetch_array($stmt)) { ?>
+		<tr>
+			<td><?php echo $row["algkoht"]?></td>
+			<td><?php echo $row["sihtkoht"]?></td>
+			<td><?php echo date("d/m/Y", strtotime($row["kuupaev_aeg"]))?></td>
+			<td><?php echo date("H:i", strtotime($row["kuupaev_aeg"]))?></td>
+			<td class="valilend"><?php echo $row["lennu_id"]?></td>
+		</tr>
+		<?php
+		};?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th><input type="text" value="Otsi alguskohti.." class="search_init" /></th>
+			<th><input type="text" value="Otsi sihtkohti.." class="search_init" /></th>
+			<th><input type="text" value="Otsi kuupäevi.." class="search_init" /></th>
+			<th><input type="text" value="Otsi kellaaegu.." class="search_init" /></th>
+		</tr>
+	</tfoot>
+</table>
+
+<script src="js/scripts.js"></script>

@@ -1,0 +1,35 @@
+<form method="post" action="?page=register">
+	<table>
+		<tr>
+            <td>Eesnimi</td>
+            <td><input type="text" name="eesnimi"></td>                       
+        </tr>
+        <tr>
+		<tr>
+            <td>Perekonnanimi</td>
+            <td><input type="text" name="perenimi"></td>                       
+        </tr>
+		<tr>
+            <td>E-post</td>
+            <td><input type="text" name="epost"></td>
+        </tr>
+		<tr>
+            <td>Kasutajanimi</td>
+            <td><input type="text" name="username"></td>                       
+        </tr>
+        <tr>
+            <td>Parool</td>
+            <td><input type="password" name="parool"></td>   
+        </tr>
+        <tr>
+            <td>Parool uuesti</td>
+            <td><input type="password" name="parool2"></td>
+        </tr>            
+    </table>
+	<button type="submit">Loo uus konto</button>
+    <?php if (isset($errors)):?>
+		<?php foreach($errors as $error):?>
+			<p><?php echo htmlspecialchars($error); ?></p>
+		<?php endforeach;?>
+	<?php endif;?>
+</form>
