@@ -1,6 +1,6 @@
 var asInitVals = new Array();
 $(document).ready(function() {
-	var oTable = $('#example').dataTable( {
+	var oTable = $('#filter').dataTable( {
 			"oLanguage": {
 			"sSearch": "Otsi üle kõikide väljade.."
 			}
@@ -32,7 +32,14 @@ $(document).ready(function() {
 } );
 
 $( ".valilend" ).click(function() {
-alert($(this).text());
-$.post('?page=lisalend', {variable: $(this).text()});
+	var lend = $(this).text();
+	if (typeof(user) != 'undefined' && user != null) {	
+		jConfirm('Oled kindel et soovid sellele lennule broneerida?', 'Palun kinnita', function(kinnitus) {
+			if (kinnitus) {$.post('?page=lisalend', {variable: lend});
+				jAlert('Oled edukalt lennule broneeringu sooritanud!', 'Kinnitus');
+			} else {
+				jAlert('Pole midagi, proovi järgmine kord uuesti', 'Teade');
+				}
+		});
+	} else {jAlert('Lendude broneerimiseks pead olema sisse logitud', 'Teade');}	
 });
-

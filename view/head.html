@@ -3,19 +3,28 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Lendude broneerimiskeskkond</title>
-	<link rel="stylesheet" type="text/css" href="css/demo_page.css">
-	<link rel="stylesheet" type="text/css" href="css/demo_table.css">
-	<script charset="utf-8" src="js/scripts.js"></script>
-	<script charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<script charset="utf-8" src="js/jquery.js"></script>
-	<script charset="utf-8" src="js/jquery.dataTables.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/datatable.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.alerts.css">
+	<script src="js/scripts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.dataTables.js"></script>
+	<script src="js/jquery.alerts.js"></script>
+	<script src="js/jquery.ui.draggable.js"></script>
 </head>
 <body>
-<div>
+<div id="wrapper">
+<div id="header">
 	<ul>
-		<li> <a href="?page=pealeht" class="menyynupp"> Pealeht </a></li>
-		<li> <a href="?page=bron" class="menyynupp"> Minu broneeringud </a></li>
-		<li> <a href="?page=login" class="menyynupp"> Logi sisse </a></li>
-		<li> <a href="?page=register" class="menyynupp"> Registreeri </a></li>
+		<li> <a href="?page=pealeht">Pealeht</a></li>
+		<li> <a <?php if(!empty($_SESSION['user'])): ?>href="?page=bron"<?php endif; ?>>Minu broneeringud</a></li>
+		<?php if(empty($_SESSION['user'])): ?>	<li> <a href="?page=login">Logi sisse</a></li><?php endif; ?>
+		<li> <a href="?page=register">Registreeri</a></li>
+		<?php if(!empty($_SESSION['user'])): ?>	<li> <a href="?page=logout">Logi välja</a></li><?php endif; ?>
+		<li id="info"> <?php if(!empty($_SESSION['user'])):?> Kasutaja: <?php echo htmlspecialchars($_SESSION['eesnimi'])." ".htmlspecialchars($_SESSION['perenimi']);?>
+		<?php else:?>Sa pole veel sisse loginud<?php endif;?>	
+		</li>
 	</ul>
+	<div><h1>Lihtne lendude broneerimiskeskkond</h1></div>
 </div>

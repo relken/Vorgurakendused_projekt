@@ -1,0 +1,21 @@
+<div id="content">
+<form method="post" action="?page=login">
+	<table class="register" cellpadding="8" cellspacing="8">
+        <tr>
+            <td>Kasutajanimi</td>
+            <td><input type="text" placeholder="kasutajanimi" name="username"></td>
+        </tr>
+        <tr>
+            <td>Parool</td>
+            <td><input type="password" placeholder="Parool" name="parool"></td>
+        </tr>
+		<tr><td colspan="2" id="regnupp"><button type="submit">Logi sisse</button></td></tr>
+    </table>
+    <?php if (isset($errors)):?>
+		<?php foreach($errors as $error):?>
+		<p id="errors"><?php echo htmlspecialchars($error); ?></p>
+		<?php endforeach;?>
+	<?php endif;?>
+</form>
+</div>
+

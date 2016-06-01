@@ -1,0 +1,119 @@
+body{
+	width: 1000px;
+	margin: 30px auto;
+	padding: 0;
+}
+h1, h2 {
+	text-align: center;
+	font-family: 'Franklin Gothic Medium';
+}
+
+#regnupp {
+	padding:20px;
+	text-align: center;
+}
+#header {
+	width: 800px;
+	margin:auto;
+	background-color: LightSkyBlue;
+}
+
+#header ul{
+	list-style: none;
+	margin:20px;
+	padding:0px;
+}
+#header li {
+	display: inline-block;
+}
+
+#header #info {
+	float: right;
+}
+
+#header a:hover, #header li:hover {
+	background: #dec;
+	color:red;
+}
+
+#header a {
+	display: inline-block;
+	padding:5px 15px;
+}
+#content {
+    padding-bottom: 100px;
+    overflow: auto;
+}
+
+#wrapper {
+	min-height:100%;
+}
+
+#footer, .push {
+    background-color: #2C3E50;
+    position: fixed;
+    padding-top: 5px;
+    clear:both;
+    width: 100%;
+    bottom:0px;
+    z-index: 0;
+	left: 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+.css_right {
+	float: right;
+}
+
+.css_left {
+	float: left;
+}
+
+.demo_links {
+	float: left;
+	width: 50%;
+	margin-bottom: 1em;
+}
+
+table.bron  {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+	margin:auto;
+}
+
+table.bron th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.bron tr  {
+	background-color:#d4e3e5;
+}
+
+table.bron td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+.register {
+	display: table;
+    margin: auto;
+    width: 30%;
+}
+
+#errors {
+	text-align: center;
+	color: red;
+	margin:auto;
+}
+

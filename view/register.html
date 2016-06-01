@@ -1,10 +1,10 @@
+<div id="content">
 <form method="post" action="?page=register">
-	<table>
+	<table class="register" cellpadding="8" cellspacing="8">
 		<tr>
             <td>Eesnimi</td>
             <td><input type="text" name="eesnimi"></td>                       
         </tr>
-        <tr>
 		<tr>
             <td>Perekonnanimi</td>
             <td><input type="text" name="perenimi"></td>                       
@@ -15,7 +15,8 @@
         </tr>
 		<tr>
             <td>Kasutajanimi</td>
-            <td><input type="text" name="username"></td>                       
+            <td><input type="text" name="username" id="username"></td>                                           
+            <td style="text-align:right;position:fixed"><div class="username_availability_result" id="username_availability_result" style="float: right;" align="right"></div></td>                                           
         </tr>
         <tr>
             <td>Parool</td>
@@ -24,12 +25,16 @@
         <tr>
             <td>Parool uuesti</td>
             <td><input type="password" name="parool2"></td>
-        </tr>            
+        </tr> 
+		<tr><td colspan="2" id="regnupp"><button type="submit">Registreeri</button></td></tr>
     </table>
-	<button type="submit">Loo uus konto</button>
     <?php if (isset($errors)):?>
 		<?php foreach($errors as $error):?>
-			<p><?php echo htmlspecialchars($error); ?></p>
+			<p id="errors"><?php echo htmlspecialchars($error); ?></p>
 		<?php endforeach;?>
 	<?php endif;?>
 </form>
+
+</div>
+<script src="js/username_ver.js"></script>
+<script src="js/jquery-1.9.1.js"></script>

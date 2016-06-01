@@ -1,0 +1,24 @@
+<?php if($row <=1):?>
+	<p id="errors"><?php echo "Sa pole veel lende broneerinud, mine broneeri kõigepealt!"; ?></p>
+<?php else:?>	
+<div id="content">
+<h2>Oled broneerinud järgmised lennud</h2>
+<table class="bron">
+	<thead>
+		<tr><th>Lennu alguskoht</th><th>Lennu Sihtkoht</th><th>Kuupäev</th><th>Kellaaeg</th><th>Broneering tehtud</th>
+	</thead>
+	<tbody>
+		<?php while ($row = mysqli_fetch_array($stmt)) { ?>
+		<tr>
+			<td><?php echo htmlspecialchars($row["algkoht"])?></td>
+			<td><?php echo htmlspecialchars($row["sihtkoht"])?></td>
+			<td><?php echo date("d/m/Y", htmlspecialchars(strtotime($row["kuupaev_aeg"])))?></td>
+			<td><?php echo date("H:i", htmlspecialchars(strtotime($row["kuupaev_aeg"])))?></td>
+			<td><?php echo date("d/m/Y  H:i", htmlspecialchars(strtotime($row["kuupaev"])))?></td>
+		</tr>
+		<?php
+		};?>
+	</tbody>
+</table>
+<?php endif;?>	
+</div>

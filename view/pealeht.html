@@ -1,19 +1,21 @@
-<table border="1" cellpadding="2" cellspacing="2" class="display" id="example">
+<div id="content">
+<table cellpadding="5" cellspacing="5" class="display" id="filter">
 	<thead>
-		<tr><th>Lennu alguskoht</th><th>Lennu Sihtkoht</th><th>Kuupäev</th><th>Kellaaeg</th><th></th>
+		<tr><th>Lennu alguskoht</th><th>Lennu Sihtkoht</th><th>Kuupäev</th><th>Kellaaeg</th><th style="visibility: hidden"></th>
 	</thead>
 	<tbody>
 		<?php while ($row = mysqli_fetch_array($stmt)) { ?>
 		<tr>
-			<td><?php echo $row["algkoht"]?></td>
-			<td><?php echo $row["sihtkoht"]?></td>
-			<td><?php echo date("d/m/Y", strtotime($row["kuupaev_aeg"]))?></td>
-			<td><?php echo date("H:i", strtotime($row["kuupaev_aeg"]))?></td>
-			<td class="valilend"><?php echo $row["lennu_id"]?></td>
+			<td><?php echo htmlspecialchars($row["algkoht"])?></td>
+			<td><?php echo htmlspecialchars($row["sihtkoht"])?></td>
+			<td><?php echo date("d/m/Y", htmlspecialchars(strtotime($row["kuupaev_aeg"])))?></td>
+			<td><?php echo date("H:i", htmlspecialchars(strtotime($row["kuupaev_aeg"])))?></td>
+			<td class="valilend" style="border: none; background-color: white"><?php echo htmlspecialchars($row["lennu_id"])?></td>
 		</tr>
 		<?php
 		};?>
 	</tbody>
+	<!--veergude filter on võetud: www.datatables.net , mida on pisut kohendatud-->
 	<tfoot>
 		<tr>
 			<th><input type="text" value="Otsi alguskohti.." class="search_init" /></th>
@@ -23,5 +25,6 @@
 		</tr>
 	</tfoot>
 </table>
-
+</div>
 <script src="js/scripts.js"></script>
+<script> var user = '<?php echo htmlspecialchars($_SESSION['user'])?>' </script>
